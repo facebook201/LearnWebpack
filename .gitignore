@@ -1,7 +1,10 @@
-node_modules
-.project
+.DS_store
+node_modules/
 release
 dist/
-webpack/node_modules
+webpack/node_modules/
 webpack/dist/
+
+#Editor directories and files
+.idea
 .vscode
