@@ -60,17 +60,76 @@ npm install webpack-cli -S
 
 
 
+#### 4 开发
+
+* 使用 source map
+
+  可以将编译后的代码映射到原始源代码。追踪到错误代码
+
+
+
+##### 自动化编译代码
+
+* webpack-dev-server 
+
+  * watch 依赖图中的所有文件进行更改 如果有一个文件被更新 代码将被重新编译
+
+  * start 
+
+    ```javascript
+    {
+        "start": "webpack-dev-server --open"
+    }
+    ```
+
+    
+
+* 热更新 webpack-dev-server
+
+  ```javascript
+    devServer: {
+      contentBase: './dist',
+      hot: true
+    },  
+    plugins: [
+      new CleanWebpackPlugin('[dist]'),
+      new HtmlWebpackPlugin({
+        title: 'output'
+      }),
+      new webpack.NamedModulesPlugin(),
+      new webpack.HotModuleReplacementPlugin()
+    ]
+  ```
+
+
+
+##### tree shaking
+
+**通常用于描述和移除js上下文中未引用代码。** 
 
 
 
 
 
+##### 压缩输出
+
+在webpack4.0 中 通过mode的模式 设置为 production 就可以
+
+```javascript
+module.exports = {
+    mode: 'production'
+};
+```
 
 
 
+##### 配置
+
+在开发环境和生产环节的构建目标差异很大。在开发环境中 需要具有更强大的 功能。在生产环节中 目标是更小的 bundle 更轻量的 source map。所以建议每个环境编写**彼此独立的webpack 配置**
 
 
 
+**webpack-merge 可以合并配置的作用**
 
 
 
