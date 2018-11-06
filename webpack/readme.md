@@ -82,8 +82,6 @@ npm install webpack-cli -S
     }
     ```
 
-    
-
 * 热更新 webpack-dev-server
 
   ```javascript
@@ -151,8 +149,6 @@ source map 对调试源码 和基准测试有帮助。
 
 
 
-
-
 #### 代码分离 code spliting
 
 * 入口起点 使用entry配置手动分离代码
@@ -163,9 +159,47 @@ source map 对调试源码 和基准测试有帮助。
 
 
 
+#### 解析 resolve
+
+resolve 选项能设置模块如何被解析。
+
+* resolve.alias
+
+```javascript
+resolve: {
+    alias: {
+        '@': resolve('src')
+    }
+}
+```
 
 
 
+
+
+#### oneOf
+
+```javascript
+module: {
+    {
+        oneOf: [
+            {
+                test: /\.(js|jsx)/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            },
+            // file-loader
+          {
+            exclude: [/\.js$/, /\.html$/, /\.styl$/, /\.json$/],
+            loader: 'file-loader',
+            options: [
+              name: 'static/[name].[hash:8].[ext]'
+            ] 
+          }
+        ]
+    }
+}
+```
 
 
 
