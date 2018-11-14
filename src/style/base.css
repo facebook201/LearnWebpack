@@ -10,6 +10,8 @@ body { margin: 0; font-size: 14px; line-height: 1.4286;}
 img, video, object, embed { border: 0; max-width: 100%; }
 img {position: relative;display: inline-block; color: transparent; overflow: hidden;}
 
+button {outline: none; border: none; appearance: none;}
+
 /*  */
 .l {float: left;}
 .r {float: right;}
