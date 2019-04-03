@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import RInput from './form-component/input';
-import '@/style/base.css';
-import '@/style/variable.styl';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import App from './pages/app';
+import './style/base.css';
+import 'antd/dist/antd.css'
 
 ReactDOM.render(
-  <RInput placeholder="请输入名字" />,
-  document.body
+  <App />,
+  document.getElementById('root')
 );

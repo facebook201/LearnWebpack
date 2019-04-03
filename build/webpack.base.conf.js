@@ -1,20 +1,23 @@
 const path = require('path');
+const config = require('../config');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const smp = new SpeedMeasurePlugin();
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
 
-module.exports = {
+module.exports = smp.wrap({
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../dist')
   },
   resolve: {
-    extensions: ['.json', '.js', '.jsx'],
-    // 创建import require的别名 使得引入模块变得简单
+    extensions: ['.json', '.js', '.tsx'],
     alias: {
       '@': resolve('src')
     }
@@ -22,47 +25,43 @@ module.exports = {
   module: {
     rules: [
       {
-        // 匹配时仅仅使用第一个数组
-        oneOf: [
-          {
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
-          },
-          {
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader']
-          },
-          {
-            test: /\.styl$/,
-            use: ['style-loader', 'css-loader', 'stylus-loader']
-          },
-          {
-            test: /\.(woff|woff2|eot|ttf|otf)$/,
-            loader: 'url-loader'
-          },
-          {
-            test: /\.(jpg|jpeg|png|gif)$/,
-            loader: 'url-loader',
-            query: {
-              limit: 10000
-            }
-          },
-          {
-            exclude: [/\.js$/, /\.html$/, /\.styl$/, /\.json$/],
-            loader: 'file-loader',
-            options: {
-              name: 'static/[name].[hash:8].[ext]'
-            }
-          }
+        test: /\.(le|c)ss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'less-loader'
         ]
+      },
+      { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        loader: 'url-loader'
+      },
+      {
+        test: /\.(jpg|jpeg|png|gif)$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000
+        }
       }
+      // {
+      //   exclude: [/\.less$/, /\.json$/, /\.css$/],
+      //   loader: 'file-loader',
+      //   options: {
+      //     name: 'static/[name].[hash:8].[ext]'
+      //   }
+      // }
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({ title: 'react' }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    })
+    new HtmlWebpackPlugin({
+      template: resolve('index.html')
+    }),
   ]
-};
+});
