@@ -1,30 +1,30 @@
 
 import React from 'react';
-import Button from 'antd/lib/button';
+import { Button } from 'element-react';
 
 import './style/order.less';
 
 export default class OrderItem extends React.Component {
-  constructor(props){
-    super(props);
-  }
 
   render() {
+    const { shop, product, price, picture, ifCommented } = this.props.data;
+
     return (
       <div className="order-item">
-        {/* 图片占位 */}
         <div className="order-avater">
-          <img src="" />
+          <img src={picture} height="60" width="60" className="order-item-img" />
         </div>
 
         <div className="order-info">
-          <div className="order-name">产品名称</div>
-          <div className="order-sell">商家名称</div>
-          <div className="order-price">￥13</div>
+          <div className="order-name">{product}</div>
+          <div className="order-sell">{shop}</div>
+          <div className="order-price">{price}</div>
         </div>
 
         <div className="order-btn">
-          <Button type="primary" className="order-evelaute">评价</Button>
+          <Button className={ifCommented ? 'btn--red' : 'btn-gray'} >
+          { ifCommented ? '已评价' : '未评价' }
+          </Button>
         </div>
       </div>
     );
