@@ -14,7 +14,15 @@ module.exports = {
       NODE_ENV: '"development"',
     },
     prot: 8888,
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/'
+    assetsSubDirectory: 'public',
+    assetsPublicPath: '/',
+    proxyTable: {
+      '/api': {
+        target: 'http://localhost:8888',
+        pathRewrite: {
+          '^/api': '/public/mock'
+        }
+      }
+    }
   }
 };
