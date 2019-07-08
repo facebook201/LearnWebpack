@@ -35,6 +35,11 @@ module.exports = smp.wrap({
       },
       { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
       {
+        test: /\.j(s|sx)?$/,
+        loaders: ['eslint-loader'],
+        exclude: /node_modules/
+      },
+      {
         test: /\.(js)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
