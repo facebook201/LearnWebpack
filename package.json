@@ -75,7 +75,9 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "popper.js": "^1.14.4",
+    "prop-types": "^15.7.2",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1"
   }
