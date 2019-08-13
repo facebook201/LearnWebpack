@@ -30,6 +30,6 @@ module.exports = {
   ],
   // 定制自己的规则
   "rules": {
-    "indent": ["error", 2],
+    // "indent": ["error", 2],
   }
 };
