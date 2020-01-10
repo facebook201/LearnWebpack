@@ -1,5 +1,6 @@
 import React from "react";
-import { Component, PropTypes } from "../../../libs";
+import PropTypes from 'prop-types';
+import { Component } from "../../../libs";
 import ajax from "./ajax";
 
 export default class AjaxUpload extends Component {
@@ -21,8 +22,8 @@ export default class AjaxUpload extends Component {
     }
   }
 
-  handleChange(event): void {
-    if (event.target instanceof HTMLInputElement) {
+  handleChange(e): void {
+    if (e.target instanceof HTMLInputElement) {
       const files = e.target.files;
       if (!files) {
         return;
@@ -33,7 +34,11 @@ export default class AjaxUpload extends Component {
     }
   }
 
-  render(): React.Element<any> {
+  uploadFiles(files) {
+    console.log(files);
+  }
+
+  render() {
     const { drag, multiple, accept, listType, disabled } = this.props;
     return (
       <div
@@ -53,3 +58,7 @@ export default class AjaxUpload extends Component {
     );
   }
 }
+
+AjaxUpload.propTypes = {
+  drag: PropTypes.bool
+};

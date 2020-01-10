@@ -57,6 +57,7 @@
     "postcss-url": "^8.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
+    "react-devtools": "^4.0.5",
     "react-dom": "^16.6.0",
     "react-hot-loader": "^4.8.2",
     "react-redux": "^5.1.0",
@@ -77,6 +78,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "element-theme-default": "^1.4.13",
     "popper.js": "^1.14.4",
     "prop-types": "^15.7.2",
     "react-router": "^5.0.1",

@@ -43,18 +43,14 @@ export default class Upload extends Component {
       action,
       ref: "upload-inner"
     };
-
+    
+    const trigger = this.props.trigger || this.props.children;
     const uploadComponent = typeof FormData !== "undefined"
-      ? <AjaxUpload key="AjaxUpload" {...restProps} />
+      ? <AjaxUpload key="AjaxUpload" {...restProps}>{trigger}</AjaxUpload>
       : null;
     return <div className={className}>{uploadComponent}</div>;
   }
 }
-
-Upload.childContextTypes = {
-  onPreview: PropTypes.func,
-  onRemove: PropTypes.func
-};
 
 Upload.propTypes = {
   action: PropTypes.string.isRequired
