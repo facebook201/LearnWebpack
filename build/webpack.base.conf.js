@@ -11,7 +11,7 @@ function resolve(dir) {
 }
 
 module.exports = smp.wrap({
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../dist')
@@ -33,7 +33,11 @@ module.exports = smp.wrap({
           'less-loader'
         ]
       },
-      { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+      {
+        test: /\.t(s|sx)?$/,
+        exclude: /node_modules/,
+        loader: ['awesome-typescript-loader', 'eslint-loader']
+      },
       {
         test: /\.j(s|sx)?$/,
         loader: ['eslint-loader'],
