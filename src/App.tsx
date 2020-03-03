@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
-import Switch from './components/Switch';
+import React from 'react';
+import Router from './router';
 
-const App = () => {
-  const [ checked, setChecked ] = useState(false);
-  return (
-    <div className='app'>
-      <Switch checked={checked} onChange={() => setChecked(!checked) } />
-    </div>
-  );
+export default class App extends React.Component {
+  render() {
+    return <Router />
+  }
 };
-
-export default App;
