@@ -3,7 +3,7 @@ import './switch.less';
 
 interface SwitchProps {
   checked: boolean,
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onChange: (event: React.ChangeEvent<HTMLElement>) => void
 }
 
 export default class Switch extends Component<SwitchProps> {

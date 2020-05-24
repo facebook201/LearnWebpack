@@ -17,7 +17,7 @@ module.exports = smp.wrap({
     path: path.resolve(__dirname, '../dist')
   },
   resolve: {
-    extensions: ['.json', '.js', '.tsx'],
+    extensions: ['.json', '.ts', '.js', '.tsx' ],
     alias: {
       '@': resolve('src')
     }
@@ -34,17 +34,17 @@ module.exports = smp.wrap({
         ]
       },
       {
-        test: /\.t(s|sx)?$/,
-        exclude: /node_modules/,
-        loader: ['awesome-typescript-loader', 'eslint-loader']
+        test: /\.tsx?$/,
+        loader: ['awesome-typescript-loader'],
+        exclude: /node_modules/
       },
       {
-        test: /\.j(s|sx)?$/,
+        test: /\.jsx?$/,
         loader: ['eslint-loader'],
         exclude: /node_modules/
       },
       {
-        test: /\.j(s|sx)$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
