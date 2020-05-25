@@ -2,14 +2,14 @@ const config = require('../config');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.base.conf');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; // bundleAnalyzerPlugin 分析有哪些东西被打包进去
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; // bundleAnalyzerPlugin 分析有哪些东西被打包进去
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const os = require('os');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const env = config.build.env;
+// const env = config.build.env;
 // 是否是生成环境
 // const isProd = env.NODE_ENV === 'production';
 
@@ -66,7 +66,6 @@ module.exports = merge(common, {
         sourceMap: true,
         uglifyOptions: {
           compress: {
-              warnings: false,
               drop_console: true,
               collapse_vars: true,
               reduce_vars: true,
@@ -81,11 +80,8 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': env
-    }),
     new CleanWebpackPlugin(['dist']),
-    new BundleAnalyzerPlugin({ analyzerPort: 8888 }),
+    // new BundleAnalyzerPlugin({ analyzerPort: 8888 }),
     // 提出CSS
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css',
