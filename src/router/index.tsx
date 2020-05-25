@@ -1,32 +1,64 @@
-import * as React from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-import Home from '../pages/Home';
-import About from '../pages/About';
+// import React from 'react';
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from 'react-router-dom';
 
-// neteds route
+// const routes = [
+//   {
+//     path: "/sandwiches",
+//     component: Sandwiches
+//   },
+//   {
+//     path: "/tacos",
+//     component: Tacos,
+//     routes: [
+//       {
+//         path: "/tacos/bus",
+//         component: Bus
+//       },
+//       {
+//         path: "/tacos/cart",
+//         component: Cart
+//       }
+//     ]
+//   }
+// ];
 
-const AppRoutes = () => (
-  <BrowserRouter>
-    <div className="router-container">
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/About">About</Link>
-        </li>
-      </ul>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
+// export default function RouteConfigExample() {
+//   return (
+//     <Router>
+//       <div>
+//         <ul>
+//           <li>
+//             <Link to="/tacos">Tacos</Link>
+//           </li>
+//           <li>
+//             <Link to="/sandwiches">Sandwiches</Link>
+//           </li>
+//         </ul>
 
-        <Route path="/about">
-          <About />
-        </Route>
-      </Switch>
-    </div>
-  </BrowserRouter>
-);
+//         <Switch>
+//           {
+//             routes.map((route, i) => (
+//               <RouteWithSubRoutes key={i} {...route} />
+//             ))
+//           }
+//         </Switch>
+//       </div>
+//     </Router>
+//   );
+// }
 
-export default AppRoutes;
+// function RouteWithSubRoutes(route) {
+//   return (
+//     <Route
+//       path={route.path}
+//       render={props => (
+//         <route.component {...props} routes={route.routes} />
+//       )>
+//     </Route>
+//   );
+// }
