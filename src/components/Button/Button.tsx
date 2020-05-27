@@ -49,7 +49,6 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     disabled: false,
     type: 'default'
   };
-
   static propTypes = {
     type: PropTypes.oneOf(ButtonTypes),
     size: PropTypes.oneOf(ButtonSizes),
