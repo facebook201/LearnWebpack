@@ -12,3 +12,9 @@ babel舍弃了以前的babel-*-*的命名方式，改成了@babel/*-*。修改�
 // 修改 babelrc
 { "presets":["@babel/react","@babel/env",]}
 ```
+
+
+### storyBook
+
+**npx -p @storybook/cli sb init --type react** 
+

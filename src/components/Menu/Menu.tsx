@@ -1,4 +1,5 @@
 import React, { useState, createContext } from 'react';
+import Item from './MenuItem';
 import classNames from 'classnames';
 
 type MenuMode = 'horizontal' | 'vertical';
@@ -10,6 +11,7 @@ export interface MenuProps {
   mode?: MenuMode;
   style?: React.CSSProperties;
   onSelect?: selectCallback;
+  Item: React.ReactNode;
 };
 
 interface IMenuContext {
