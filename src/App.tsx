@@ -1,38 +1,19 @@
-import React, { useState, useEffect } from 'react';
-// import Router from './router';
+import React from 'react';
+import Hooks from './Hooks';
+import Button from './components/Button';
+import Context from './Hooks/ref';
 
-function FriendStatus() {
-  const [isOnline, setIsOnline] = useState(null);
-
-  function handleStatusChange(status: any) {
-    setIsOnline(status);
-  }
-
-  const ChatAPI = {
-    subscribeToFriendStatus(id: string, fn: (status: any) => void) {
-      
-    },
-    unsubscribeFromFriendStatus(id: string, fn: (status: any) => void) {
-
-    }
-  };
-
-  useEffect(() => {
-    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
-    return () => {
-      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
-    };
-  });
-
-}
-
-export default class App extends React.Component {
-  render() {
-    // return <Router />
-    return (
-      <div>
-        App
-      </div>
-    );
-  }
+const App: React.FC = () => {
+  return (
+    <div>
+      <Button type='primary' disabled>主要的</Button>
+      {/* <Button type="danger">危险的</Button> */}
+      {/* <Button type="primary">主要的</Button> */}
+      <Button disabled>禁止</Button>
+      <Hooks />
+      <Context />
+    </div>
+  );
 };
+
+export default App;
