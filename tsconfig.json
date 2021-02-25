@@ -12,6 +12,7 @@
     "jsx": "react",                           /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
     "sourceMap": true,                        /* Generates corresponding '.map' file. */
     "outDir": "./dist",                       /* Redirect output structure to the directory. */
+    "rootDirs": ["src", "stories"],
     "isolatedModules": true,                  /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,

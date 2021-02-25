@@ -1,32 +1,60 @@
 import * as React from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Home from '../pages/Home';
 import About from '../pages/About';
-
-// neteds route
+import NotFound from '../pages/NotFound';
 
 const AppRoutes = () => (
-  <BrowserRouter>
+  <Router>
     <div className="router-container">
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
         </li>
         <li>
-          <Link to="/About">About</Link>
+          <Link to="/about">About</Link>
         </li>
       </ul>
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-
-        <Route path="/about">
-          <About />
-        </Route>
+        <Route path="/about" component={About} />
+        <Route exact path="/home" component={Home} />
+        <Route path="*" component={NotFound} />
       </Switch>
     </div>
-  </BrowserRouter>
+  </Router>
 );
 
 export default AppRoutes;
+
+
+/**
+ * 
+ * 页面角色 三个角色
+ * 公共页面
+ * 普通页面
+ * 管理员页面
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

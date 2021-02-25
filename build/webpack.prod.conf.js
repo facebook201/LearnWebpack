@@ -68,7 +68,6 @@ module.exports = merge(common, {
         sourceMap: true,
         uglifyOptions: {
           compress: {
-              warnings: false,
               drop_console: true,
               collapse_vars: true,
               reduce_vars: true,
@@ -84,9 +83,12 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
+<<<<<<< HEAD
     // new webpack.DefinePlugin({
     //   'process.env': env
     // }),
+=======
+>>>>>>> 398a9a3f432f9c4d526a3209b918c69c122827c9
     new CleanWebpackPlugin(['dist']),
     // new BundleAnalyzerPlugin({ analyzerPort: 8888 }),
     // 提出CSS

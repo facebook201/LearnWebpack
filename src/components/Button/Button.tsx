@@ -27,17 +27,18 @@ interface BaseButtonProps {
 };
 
 export type AnchorButtonProps = {
-  href?: string;
+  href: string;
   target?: string;
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-} & BaseButtonProps & React.ButtonHTMLAttributes<HTMLAnchorElement>;
-
+  onClick?: React.MouseEventHandler<HTMLElement>;
+} & BaseButtonProps &
+  Omit<React.AnchorHTMLAttributes<any>, 'type' | 'onClick'>;
 
 export type NativeButtonProps = {
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-} & BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+} & BaseButtonProps &
+  Omit<React.ButtonHTMLAttributes<any>, 'type' | 'onClick'>;
 
-export type ButtonProps = NativeButtonProps | AnchorButtonProps;
+export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 interface ButtonState {
   loading?: boolean;
@@ -48,7 +49,6 @@ class Button extends React.Component<BaseButtonProps, ButtonState> {
     disabled: false,
     type: 'default'
   };
-
   static propTypes = {
     type: PropTypes.oneOf(ButtonTypes),
     size: PropTypes.oneOf(ButtonSizes)

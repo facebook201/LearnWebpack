@@ -10,6 +10,7 @@ import 'antd/dist/antd.css';
 import './styles/index.less';
 // import { createStore } from 'redux';
 import App from './App';
+// import Stock from './Stock';
 
 // redux 三个重要的部分 action、reducer、state（store）
 // 创建一个store
